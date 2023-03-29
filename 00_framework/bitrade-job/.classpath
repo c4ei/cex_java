@@ -39,6 +39,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/dev/jee-2023-03/eclipse/lombok.jar"/>
+	<classpathentry kind="lib" path="/home/dev/www/cex/ide/eclipse/lombok.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
