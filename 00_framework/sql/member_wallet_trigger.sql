@@ -19,13 +19,13 @@ CREATE TABLE `member_wallet_history` (
   `after_frozen_balance` decimal(18,8) DEFAULT '0.00000000',
   `op_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1338 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;
 
 
 -- 修改member_wallet 表结构，增加after update trigger
-
+-- member_wallet 테이블 구조 수정 및 업데이트 트리거 후 추가
 create trigger trigger_update_wallet
 after update on member_wallet
 for each row
