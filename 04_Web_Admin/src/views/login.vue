@@ -7,12 +7,12 @@
 		<div class="login-con">
 			<Card :bordered="false">
 				<p slot="title">
-					<Icon type="log-in"></Icon> 欢迎登录
+					<Icon type="log-in"></Icon> 로그인 <!-- 欢迎登录 -->
 				</p>
 				<div class="form-con" v-if="!phoneNum">
 					<Form ref="loginForm" :model="form" :rules="rules">
 						<FormItem prop="username">
-							<Input v-model="form.username" :disabled="btnDisable" placeholder="请输入用户名">
+							<Input v-model="form.username" :disabled="btnDisable" placeholder="username"> <!-- 请输入用户名 -->
 								<span slot="prepend">
 									<Icon :size="16" type="person"></Icon>
 								</span>
@@ -20,7 +20,7 @@
 						</FormItem>
 
 						<FormItem prop="password">
-							<Input type="password" v-model="form.password" :disabled="btnDisable" placeholder="请输入密码">
+							<Input type="password" v-model="form.password" :disabled="btnDisable" placeholder="비밀번호"> <!-- 请输入密码 -->
 								<span slot="prepend">
 									<Icon :size="14" type="locked"></Icon>
 								</span>
@@ -29,7 +29,7 @@
 
 						<Row v-show="!phoneNum">
 							<Col span="12">
-								<Input v-model="form.captcha" placeholder="验证码" >
+								<Input v-model="form.captcha" placeholder="확인 코드" > <!-- 验证码 -->
 								<span slot="prepend">
 									<Icon :size="14" type="locked"></Icon>
 								</span></Input>
@@ -40,7 +40,7 @@
 						</Row>
 
 						<FormItem style='margin-top:10px'>
-							<Button @click="handle" type="warning" long>登录</Button>
+							<Button @click="handle" type="warning" long>Login</Button>
 						</FormItem>
 
 						<p style='color:red;text-align:center' v-if="messshow">{{errormessage}}</p>
@@ -52,18 +52,18 @@
 							<p class="phone-num">{{ phoneNum | hidePhoneNum }}</p>
 						</FormItem>
 						<FormItem>
-							<Input placeholder="请输入验证码" v-model="code" :class="{appendBtn: count===0}">
-							 	<Button slot="append" v-if="count>0" :disabled="count>0">{{count}}s后重新获取</Button>
-							 	<Button slot="append" v-else-if="count===0" type="success" @click="getCodeTwice">获取验证码</Button>
+							<Input placeholder="인증 코드 입력" v-model="code" :class="{appendBtn: count===0}"> <!-- 请输入验证码 -->
+							 	<Button slot="append" v-if="count>0" :disabled="count>0">{{count}}s이후 재취득</Button>
+							 	<Button slot="append" v-else-if="count===0" type="success" @click="getCodeTwice">확인 코드 받기</Button> <!-- 获取验证码 -->
 							</Input>
 						</FormItem>
 						<FormItem>
 							<Row>
 								<Col span="11">
-									<Button @click="handle" type="warning" long>登录</Button>
+									<Button @click="handle" type="warning" long>로그인</Button> <!-- 登录 -->
 								</Col>
 								<Col span="11" offset="2">
-									<Button @click="cancelSignIn" long>取消</Button>
+									<Button @click="cancelSignIn" long>취소</Button> <!-- 取消 -->
 								</Col>
 							</Row>
 						</FormItem>
