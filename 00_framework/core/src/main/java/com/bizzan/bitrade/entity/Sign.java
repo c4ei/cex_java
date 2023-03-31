@@ -36,21 +36,21 @@ public class Sign {
     /**
      * 赠送数目
      */
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+9")
     private BigDecimal amount;
 
     /**
      * 结束日期
      */
     @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+9")
     private Date endDate;
 
     /**
      * 创建时间
      */
     @CreationTimestamp
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date creationTime;
 
     /**

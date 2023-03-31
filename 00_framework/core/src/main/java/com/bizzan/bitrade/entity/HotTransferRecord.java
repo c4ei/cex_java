@@ -27,7 +27,7 @@ public class HotTransferRecord {
     private Long adminId ;
 
     @CreationTimestamp
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date transferTime ;
 
     @Column(columnDefinition = "decimal(18,8) default 0 comment '转账金额'")

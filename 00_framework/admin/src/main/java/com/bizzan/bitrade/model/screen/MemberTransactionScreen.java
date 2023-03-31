@@ -14,9 +14,9 @@ public class MemberTransactionScreen extends AccountScreen{
     /**
      * 交易时间搜索
      */
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")
     private Date startTime;
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")
     private Date endTime;
     /**
      *  RECHARGE("充值"),

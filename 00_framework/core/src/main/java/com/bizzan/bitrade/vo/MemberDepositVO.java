@@ -23,6 +23,6 @@ public class MemberDepositVO {
 
     private BigDecimal walletBalance; // 钱包实时余额（链上余额）
     
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime ;
 }

@@ -132,7 +132,7 @@ public class RedEnvelope {
      * 创建时间
      */
     @CreationTimestamp
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date createTime;
     
     /**

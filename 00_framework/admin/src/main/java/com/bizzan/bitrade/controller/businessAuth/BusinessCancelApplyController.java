@@ -72,8 +72,8 @@ public class BusinessCancelApplyController extends BaseController {
             PageModel pageModel,
             @RequestParam(value = "account", required = false) String account,
             @RequestParam(value = "status", required = false) CertifiedBusinessStatus status,
-            @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") Date startDate,
-            @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") Date endDate) {
+            @JsonFormat(timezone = "GMT+9", pattern = "yyyy-MM-dd") Date startDate,
+            @JsonFormat(timezone = "GMT+9", pattern = "yyyy-MM-dd") Date endDate) {
         List<BooleanExpression> predicates = new ArrayList<>();
         if (!StringUtils.isEmpty(account)) {
             predicates.add(QBusinessCancelApply.businessCancelApply.member.username.like("%" + account + "%")

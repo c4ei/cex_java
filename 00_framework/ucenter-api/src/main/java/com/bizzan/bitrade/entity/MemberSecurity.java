@@ -17,7 +17,7 @@ import java.util.Date;
 public class MemberSecurity {
     private String username;
     private long id;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date createTime;
     private BooleanEnum realVerified;
     private BooleanEnum emailVerified;

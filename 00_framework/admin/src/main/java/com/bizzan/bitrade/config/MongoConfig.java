@@ -51,8 +51,8 @@ public class MongoConfig extends AbstractMongoConfiguration{
         DefaultDbRefResolver dbRefResolver = new DefaultDbRefResolver(this.dbFactory());
         MappingMongoConverter converter = new MappingMongoConverter(dbRefResolver, this.mongoMappingContext());
         List<Object> list = new ArrayList<>();
-        list.add(new BigDecimalToDecimal128Converter());//自定义的类型转换器
-        list.add(new Decimal128ToBigDecimalConverter());//自定义的类型转换器
+        list.add(new BigDecimalToDecimal128Converter());//自定义的类型转换器 사용자 정의 유형 변환기
+        list.add(new Decimal128ToBigDecimalConverter());//自定义的类型转换器 사용자 정의 유형 변환기
         //list.add(new DateLocalConvert());
         converter.setCustomConversions(new CustomConversions(list));
         return converter;

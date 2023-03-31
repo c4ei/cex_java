@@ -40,7 +40,7 @@ public class ExchangeOrder implements Serializable {
     //挂单价格
     @Column(columnDefinition = "decimal(18,8) DEFAULT 0 ")
     private BigDecimal price = BigDecimal.ZERO;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     //挂单时间
     private Long time;
     //交易完成时间

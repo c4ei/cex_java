@@ -63,8 +63,8 @@ public class IndexController {
     @PostMapping("member-statistics-info")
     @AccessLog(module = AdminModule.INDEX,operation = "首页会员信息统计")
     public MessageResult getYestodayStatisticsInfo(
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date startDate,
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date endDate){
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date startDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date endDate){
 
         if(endDate == null){
             endDate = DateUtil.getDate(new Date(),1);
@@ -118,8 +118,8 @@ public class IndexController {
     @PostMapping("member-statistics-chart")
     @AccessLog(module = AdminModule.INDEX,operation = "首页会员信息统计图")
     public MessageResult getMemberStatisticsChart(
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date startDate,
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date endDate
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date startDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date endDate
     ){
 
         Assert.notNull(startDate,"startDate must not be null");
@@ -149,8 +149,8 @@ public class IndexController {
     @PostMapping("otc-statistics-turnover")
     @AccessLog(module = AdminModule.INDEX,operation = "法币成交信息统计")
     public MessageResult otcStatistics(
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date startDate,
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date endDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date startDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date endDate,
             String unit
     ){
 
@@ -218,8 +218,8 @@ public class IndexController {
     @PostMapping("exchange-statistics-turnover")
     @AccessLog(module = AdminModule.INDEX,operation = "首页币币成交量/成交额/手续费 总计")
     public MessageResult exchangeStatistics(
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date startDate,
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date endDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date startDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date endDate,
             String unit
     ) {
         Assert.notNull(unit, "unit must not be null ......");
@@ -335,8 +335,8 @@ public class IndexController {
     @PostMapping("/otc-statistics-num-chart")
     @AccessLog(module = AdminModule.INDEX,operation = "法币成交量统计图")
     public MessageResult otcNumChart(
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date startDate,
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date endDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date startDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date endDate,
             String[] units/*,
             TransactionTypeEnum type*/){
 
@@ -401,8 +401,8 @@ public class IndexController {
     @PostMapping("exchange-statistics-turnover-chart")
     @AccessLog(module = AdminModule.INDEX,operation = "币币成交 统计图 （按照交易对区分）")
     public MessageResult exchangeNumStatistics(
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date startDate,
-            @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")Date endDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date startDate,
+            @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")Date endDate,
             String baseSymbol,
             String[] coinSymbols){
 

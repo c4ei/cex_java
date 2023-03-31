@@ -33,7 +33,7 @@ import com.bizzan.bitrade.util.MessageResult;
 import com.sparkframework.security.Encrypt;
 /**
  * @author Shaoxianjun
- * @description otc承兑商
+ * @description otc수락자承兑商
  * @date 2019/1/11 13:35
  */
 @RestController
@@ -57,6 +57,7 @@ public class AdminCtcAcceptorController  extends BaseController {
 	@RequiresPermissions("ctc:acceptor:page-query")
     @PostMapping("page-query")
     @AccessLog(module = AdminModule.CTC, operation = "分页查看CTC承兑商列表AdminCtcAcceptorController")
+    // @AccessLog(module = AdminModule.CTC, operation = "페이지별 CTC 수락자 목록 보기AdminCtcAcceptorController")
     public MessageResult orderList(PageModel pageModel) {
 		if (pageModel.getProperty() == null) {
             List<String> list = new ArrayList<>();
@@ -77,7 +78,7 @@ public class AdminCtcAcceptorController  extends BaseController {
 	 * @return
 	 */
 	@RequiresPermissions("ctc:acceptor:switch")
-    @AccessLog(module = AdminModule.CTC, operation = "标记已付款并完成CTC订单")
+    @AccessLog(module = AdminModule.CTC, operation = "标记已付款并完成CTC订单") //결제 완료 표시 및 CTC 주문 완료
 	@PostMapping("switch")
 	@Transactional(rollbackFor = Exception.class)
     public MessageResult payOrder(@RequestParam("id") Long id,

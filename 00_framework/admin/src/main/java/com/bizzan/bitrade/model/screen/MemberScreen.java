@@ -15,9 +15,9 @@ public class MemberScreen extends AccountScreen{
      * 会员注册时间
      */
 
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")
     private Date startTime;
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")
     private Date endTime;
 
     /**

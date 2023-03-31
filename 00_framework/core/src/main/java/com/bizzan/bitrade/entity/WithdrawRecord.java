@@ -53,10 +53,10 @@ public class WithdrawRecord {
     @Column(columnDefinition = "decimal(18,8) comment '预计到账数量'")
     private BigDecimal arrivedAmount;
     @CreationTimestamp
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date dealTime;
     /**
      * 提现状态

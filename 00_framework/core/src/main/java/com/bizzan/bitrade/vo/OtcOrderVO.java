@@ -23,7 +23,7 @@ public class OtcOrderVO {
     private String orderSn ;
 
     @Excel(name="交易时间")
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime ;
 
     @Excel(name="广告发布者")
@@ -55,12 +55,12 @@ public class OtcOrderVO {
     @Enumerated(value = EnumType.ORDINAL)
     private OrderStatus status ;
 
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date cancelTime ;
 
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date releaseTime ;
 
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date payTime ;
 }

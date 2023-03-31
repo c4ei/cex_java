@@ -33,7 +33,7 @@ import java.util.Map;
 public class ShiroConfig {
 
     /**
-     * ShiroFilterFactoryBean 处理拦截资源文件问题。
+     * ShiroFilterFactoryBean 리소스 파일 가로채기 문제 처리 处理拦截资源文件问题。
      *
      * @param securityManager
      * @return
@@ -45,7 +45,7 @@ public class ShiroConfig {
         log.info("ShiroConfiguration.shirFilter()");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        //拦截器.
+        //拦截器. 인터셉터
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         filterChainDefinitionMap.put("/captcha", "anon");
         filterChainDefinitionMap.put("/admin/code/**", "anon");
@@ -60,12 +60,14 @@ public class ShiroConfig {
     }
 
     /**
-     * Shiro生命周期处理器
+     * Shiro生命周期处理器 라이프사이클 핸들러
      *
      *   /*1.LifecycleBeanPostProcessor，这是个DestructionAwareBeanPostProcessor的子类，
      *   负责org.apache.shiro.util.Initializable类型bean的生命周期的，初始化和销毁。
      *   主要是AuthorizingRealm类的子类，以及EhCacheManager类。
-     *
+     *   1.DestructionAwareBeanPostProcessor의 하위 클래스인 LifecycleBeanPostProcessor,
+     *   org.apache.shiro.util.Initializable 유형 bean의 수명 주기, 초기화 및 파괴를 담당합니다.
+     *   주로 AuthorizingRealm 클래스 및 EhCacheManager 클래스의 하위 클래스입니다.
      * @return
      */
     @Bean(name = "lifecycleBeanPostProcessor")
@@ -79,7 +81,9 @@ public class ShiroConfig {
      * shiro缓存管理器;
      * 需要注入对应的其它的实体类中：
      * 安全管理器：securityManager
-     *
+     * 시로 캐시 관리자;
+     * 다른 해당 엔터티 클래스에 주입해야 합니다.
+     * 보안 관리자: securityManager
      * @return
      */
     @Bean(name="ehCacheManager")
@@ -96,6 +100,7 @@ public class ShiroConfig {
     public AdminRealm adminRealm(EhCacheManager ehCacheManager) {
         AdminRealm adminRealm = new AdminRealm() ;
         //为确保密码安全，可以定义hash算法，（此处未做任何hash，直接用密码匹配）
+        //비밀번호의 보안을 보장하기 위해 해시 알고리즘을 정의할 수 있습니다(여기서는 해시가 수행되지 않으며 비밀번호와 직접 일치).
         /*HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();
         matcher.setHashAlgorithmName("SHA-1");
         matcher.setHashIterations(2);
@@ -107,6 +112,7 @@ public class ShiroConfig {
 
     /**
      * 设置rememberMe  Cookie 7天
+     * 7일 동안 rememberMe 쿠키 설정
      * @return
      */
     @Bean(name="simpleCookie")
@@ -156,11 +162,15 @@ public class ShiroConfig {
     /**
      * 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),
      * 需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证 * 配置以下两个bean
+     * Open Shiro 주석(예: @RequiresRoles, @RequiresPermissions),
+     * Spring AOP를 사용하여 Shiro로 주석이 달린 클래스를 스캔하고, 필요한 경우 보안 로직 검증을 수행해야 함 * 다음 두 가지 Bean 구성
+     * (DefaultAdvisorAutoProxyCreator(선택 사항) 및 AuthorizationAttributeSourceAdvisor)는 이 기능을 달성할 수 있습니다.
      * (DefaultAdvisorAutoProxyCreator(可选)和AuthorizationAttributeSourceAdvisor)即可实现此功能 * @return
      */
 
     /**
      * 由Advisor决定对哪些类的方法进行AOP代理。
+     * AOP 프록시를 수행할 클래스 메소드를 결정하는 것은 Advisor에게 달려 있습니다.
      * @return
      */
     @Bean

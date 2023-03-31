@@ -105,11 +105,11 @@ public class AdminCtcOrderController  extends BaseController {
     @AccessLog(module = AdminModule.CTC, operation = "分页查看CTC订单列表AdminCtcOrderController")
     public MessageResult orderDetail(@RequestParam("id") Long id) {
 		if(id == null || id == 0) {
-			return error("订单不存在");
+			return error("주문이 존재하지 않습니다.订单不存在");
 		}
 		CtcOrder order = ctcOrderService.findOne(id);
 		if(order == null) {
-			return error("订单不存在");
+			return error("주문이 존재하지 않습니다.订单不存在");
 		}
 		return success(order);
 	}
@@ -134,10 +134,10 @@ public class AdminCtcOrderController  extends BaseController {
         CtcOrder order = ctcOrderService.findOne(id);
         notNull(order, "validate order.id!");
         if(order.getStatus() != 1) {
-        	return error("无法对已接单状态之外的状态订单标记付款");
+        	return error("주문 접수 상태 이외의 상태 주문에 대해서는 결제를 표시할 수 없습니다.无法对已接单状态之外的状态订单标记付款");
         }
         if(order.getDirection() != 1) {
-        	return error("该订单为用户买入，无法标记付款");
+        	return error("사용자가 주문을 구매했으며 결제 표시를 할 수 없습니다.该订单为用户买入，无法标记付款");
         }
         order.setStatus(2);
         order.setPayTime(DateUtil.getCurrentDate());
@@ -166,18 +166,18 @@ public class AdminCtcOrderController  extends BaseController {
         notNull(order, "validate order.id!");
         
         if(order.getStatus() != 2) {
-        	return error("请确认订单已付款！");
+        	return error("주문이 입금되었는지 확인해주세요!请确认订单已付款！");
         }
         List<CtcAcceptor> acceptors = acceptorService.findByMember(order.getAcceptor());//findOne(order.getAcceptor().getId());
         if(acceptors.size() != 1) {
-        	return error("承兑商映射关系错误！");
+        	return error("수락자 매핑 관계가 잘못되었습니다!承兑商映射关系错误！");
         }
         CtcAcceptor acceptor = acceptors.get(0);
         // 买入场景=>用户钱包余额增加
         if(order.getDirection() == 0) {
         	MemberWallet mw = memberWalletService.findByCoinUnitAndMemberId(order.getUnit(), order.getMember().getId());
         	if(mw == null) {
-        		return error("用户钱包不存在");
+        		return error("사용자 지갑이 존재하지 않습니다.用户钱包不存在");
         	}
         	memberWalletService.increaseBalance(mw.getId(), order.getAmount());
 
@@ -199,12 +199,19 @@ public class AdminCtcOrderController  extends BaseController {
 	        
 	        Member member = memberService.findOne(order.getMember().getId());
 	        try {
-				smsProvider.sendCustomMessage(member.getMobilePhone(), "尊敬的用户，您订单号为"
+				// smsProvider.sendCustomMessage(member.getMobilePhone(), "尊敬的用户，您订单号为"
+				// 														+ order.getOrderSn()
+				// 														+ ",买入单价为" + order.getPrice() + "CNY"
+				// 														+ ",数量为"+ order.getAmount() + " USDT"
+				// 														+ ",总价为" + order.getMoney()
+				// 														+ "的订单已由承兑商确认并放币，请您及时查收。");
+				smsProvider.sendCustomMessage(member.getMobilePhone(), "귀하의 주문 번호는"
 																		+ order.getOrderSn()
-																		+ ",买入单价为" + order.getPrice() + "CNY"
-																		+ ",数量为"+ order.getAmount() + " USDT"
-																		+ ",总价为" + order.getMoney()
-																		+ "的订单已由承兑商确认并放币，请您及时查收。");
+																		+ ",구매가격은" + order.getPrice() + "CNY"
+																		+ ",수량은"+ order.getAmount() + " USDT"
+																		+ ",총 가격은" + order.getMoney()
+																		+ "의 주문이 수락되었습니다.");
+																		
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -214,10 +221,10 @@ public class AdminCtcOrderController  extends BaseController {
         if(order.getDirection() == 1) {
         	MemberWallet mw = memberWalletService.findByCoinUnitAndMemberId(order.getUnit(), order.getMember().getId());
         	if(mw == null) {
-        		return error("用户钱包不存在");
+        		return error("사용자 지갑이 존재하지 않습니다. 用户钱包不存在");
         	}
         	if(mw.getFrozenBalance().compareTo(order.getAmount()) < 0) {
-        		return error("用户冻结余额不足");
+        		return error("사용자 잔액이 부족합니다. 用户冻结余额不足");
         	}
         	memberWalletService.decreaseFrozen(mw.getId(), order.getAmount());
         	

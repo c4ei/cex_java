@@ -44,7 +44,7 @@ public class BusinessAuthApply {
     /**
      * 申请时间
      */
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     /**
@@ -66,7 +66,7 @@ public class BusinessAuthApply {
      */
     private BigDecimal amount;
 
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime ;
 
     @Transient

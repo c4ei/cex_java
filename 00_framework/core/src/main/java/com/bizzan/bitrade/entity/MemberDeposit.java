@@ -23,7 +23,7 @@ public class MemberDeposit {
     private BigDecimal amount;
     private String unit;
     @CreationTimestamp
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date createTime;
     private String txid;
     private String address;

@@ -104,14 +104,14 @@ public class Watcher extends Thread{
 				JSONObject obj = JSON.parseObject(retStr);
 				int total = obj.getIntValue("total");
 				
-				logger.info("解析区块{} - {}的交易信息：{}条记录", startBlockNumber, endBlockNumber, total);
+				logger.info("구문 분석 블록{} - {}거래 정보：{}기록", startBlockNumber, endBlockNumber, total);
 				
 				if(total > 0) {
 					JSONArray list = obj.getJSONArray("list");
 					if(list.size() > 0) {
 						for(int i = 0; i < list.size(); i++) {
 							JSONObject transObj = list.getJSONObject(i);
-							logger.info("交易信息：{}", transObj.toJSONString()); 
+							logger.info("거래정보：{}", transObj.toJSONString()); 
 							if(transObj.getString("status").equals("executed")) {
 								// 区块号
 								Long blockNum = transObj.getLong("block_num");
@@ -125,9 +125,9 @@ public class Watcher extends Thread{
 								Boolean isNumric = memo.matches("^\\d+$");
 								if(isNumric) {
 									if(amount.compareTo(BigDecimal.ZERO) > 0) {
-										logger.info("发现用户充值记录: 数量：{}， Memo：{}", amount, memo); 
+										logger.info("사용자충전기록찾기 : 수량：{}， Memo：{}", amount, memo); 
 										Deposit deposit = new Deposit();
-										deposit.setUserId(Long.parseLong(memo)); //此处无需对memo处理，wallet.jar会处理
+										deposit.setUserId(Long.parseLong(memo)); //수정할 필요가 없음memo처리，wallet.jar처리
 								        deposit.setTxid(transObj.getString("id"));
 								        deposit.setBlockHeight(blockNum);
 								        deposit.setBlockHash(transObj.getString("id"));

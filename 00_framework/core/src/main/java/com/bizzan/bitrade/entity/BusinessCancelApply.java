@@ -35,10 +35,10 @@ public class BusinessCancelApply {
     private String depositRecordId ;
 
     @CreationTimestamp
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date cancelApplyTime ;
 
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date handleTime ;
 
     /**

@@ -277,6 +277,8 @@ java -jar -Xms512m -Xmx512m -Xmn200m -Xss256k  wallet.jar
 
 Some reported that there is no complete SQL file. This is because the successfully compiled Jar will automatically map the Entity to a database structure after the first run. The SQL in the project only completes some database structures that Springcloud cannot complete.
 The automatic database configuration is located in the application.properties configuration file:
+일부는 완전한 SQL 파일이 없다고 보고했습니다. 이는 성공적으로 컴파일된 Jar가 첫 번째 실행 후 엔티티를 데이터베이스 구조에 자동으로 매핑하기 때문입니다. 프로젝트의 SQL은 Springcloud가 완료할 수 없는 일부 데이터베이스 구조만 완료합니다.
+자동 데이터베이스 구성은 application.properties 구성 파일에 있습니다.
 
 > #jpa  
 > spring.jpa.show-sql=true  

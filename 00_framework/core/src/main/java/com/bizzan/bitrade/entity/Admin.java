@@ -40,7 +40,7 @@ public class Admin {
 
     @Excel(name = "用户最后登录时间", orderNum = "1", width = 25)
     @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date lastLoginTime;
 
     @Excel(name = "最后登录ip", orderNum = "1", width = 25)

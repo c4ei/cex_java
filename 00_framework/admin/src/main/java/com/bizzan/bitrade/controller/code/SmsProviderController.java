@@ -41,7 +41,7 @@ public class SmsProviderController {
     private LocaleMessageSourceService msService;
 
     /**
-     * 币种管理 修改币种信息手机验证码
+     * 币种管理 修改币种信息手机验证码 통화 관리 통화 정보 수정 휴대폰 인증번호
      *
      * @param admin
      * @return
@@ -53,7 +53,7 @@ public class SmsProviderController {
     }
 
     /**
-     * 币币管理 币币设置 手机验证码
+     * 币币管理 币币设置 手机验证码 통화 관리 통화 설정 모바일 인증 코드
      *
      * @param admin
      * @return
@@ -65,7 +65,7 @@ public class SmsProviderController {
     }
 
     /**
-     * 转入冷钱包 手机验证码
+     * 转入冷钱包 手机验证码 콜드월렛으로 이동 휴대폰 인증코드
      *
      * @param admin
      * @return
@@ -77,7 +77,7 @@ public class SmsProviderController {
     }
 
     /**
-     * 后台登录  手机验证码
+     * 后台登录  手机验证码 백그라운드 로그인 휴대폰 인증 코드
      *
      * @param phone
      * @return
@@ -101,7 +101,7 @@ public class SmsProviderController {
             }
             result = smsProvider.sendVerifyMessage(phone, randomCode);
             if (result.getCode() == 0) {
-                logger.info("短信验证码:{}", randomCode);
+                logger.info("SMS인증코드 短信验证码:{}", randomCode);
                 valueOperations.set(key, randomCode, 10, TimeUnit.MINUTES);
                 return success(msService.getMessage("SEND_CODE_SUCCESS") + phone);
             }

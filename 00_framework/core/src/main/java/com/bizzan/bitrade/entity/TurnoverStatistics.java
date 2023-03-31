@@ -25,7 +25,7 @@ public class TurnoverStatistics {
     /**
      * 成交日期:以天为最小单位统计
      */
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd")
     private Date date ;
 
     private int year ;

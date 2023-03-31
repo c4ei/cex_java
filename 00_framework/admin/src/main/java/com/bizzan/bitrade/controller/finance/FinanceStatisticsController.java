@@ -51,8 +51,8 @@ public class FinanceStatisticsController {
     @AccessLog(module = AdminModule.FINANCE, operation = "法币/币币  总成交量/总成交额")
     public MessageResult getResult(
             String[] types,
-            @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") Date startDate,
-            @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") Date endDate,
+            @JsonFormat(timezone = "GMT+9", pattern = "yyyy-MM-dd") Date startDate,
+            @JsonFormat(timezone = "GMT+9", pattern = "yyyy-MM-dd") Date endDate,
             String unit) {
 
         Assert.notNull(types, "type must not be null ");
@@ -114,8 +114,8 @@ public class FinanceStatisticsController {
     @PostMapping("fee")
     @AccessLog(module = AdminModule.FINANCE, operation = "手续费统计 总计[\"OTC_NUM\",\"WITHDRAW\",\"EXCHANGE\"]")
     public MessageResult getFee(TransactionTypeEnum type
-            , @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") Date startDate
-            , @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") Date endDate
+            , @JsonFormat(timezone = "GMT+9", pattern = "yyyy-MM-dd") Date startDate
+            , @JsonFormat(timezone = "GMT+9", pattern = "yyyy-MM-dd") Date endDate
             , String unit) {
 
         Assert.notNull(type, "type must not be null ");
@@ -175,8 +175,8 @@ public class FinanceStatisticsController {
     @PostMapping("recharge-or-withdraw-amount")
     @AccessLog(module = AdminModule.FINANCE, operation = "充币/提币总量统计")
     public MessageResult recharge(TransactionTypeEnum type
-            , @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") Date startDate
-            , @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd") Date endDate
+            , @JsonFormat(timezone = "GMT+9", pattern = "yyyy-MM-dd") Date startDate
+            , @JsonFormat(timezone = "GMT+9", pattern = "yyyy-MM-dd") Date endDate
     ) {
 
         Assert.isTrue(type == TransactionTypeEnum.WITHDRAW || type == TransactionTypeEnum.RECHARGE, "type只能为 5（充币） 或 6（提币）");

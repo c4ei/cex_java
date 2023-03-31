@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 
 	<name>${project.artifactId}</name>
-	<description>数字货币交易系统父节点</description>
+	<description>디지털 통화 거래 시스템 부모 노드 数字货币交易系统父节点</description>
 	<url>bizzan.com</url>
 	<modules>
 		<module>core</module>

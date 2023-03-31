@@ -16,7 +16,7 @@ import java.util.Date;
 @Data
 @Builder
 public class PromotionMember {
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date createTime;
     private String username;
     private PromotionLevel level;

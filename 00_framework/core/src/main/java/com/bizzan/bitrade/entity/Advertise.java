@@ -57,12 +57,12 @@ public class Advertise implements Serializable {
 
     @Excel(name = "广告创建时间", orderNum = "1", width = 25)
     @CreationTimestamp
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date createTime;
 
     @Excel(name = "广告最后更新时间", orderNum = "1", width = 25)
     @UpdateTimestamp
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+9")
     private Date updateTime;
 
     /**

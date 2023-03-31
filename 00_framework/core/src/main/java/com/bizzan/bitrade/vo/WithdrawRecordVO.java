@@ -18,14 +18,14 @@ public class WithdrawRecordVO {
     private String memberRealName ;
     private String phone ;
     private String email ;
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date dealTime ;
     private String unit ;
     private BigDecimal totalAmount ;
     private BigDecimal fee ;
     private BigDecimal arrivedAmount ;
     private String transactionNumber ;
-    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(timezone = "GMT+9",pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime ;
     private String address ;
     private WithdrawStatus status ;
